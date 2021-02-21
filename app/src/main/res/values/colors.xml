@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00235D</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorHomeBg">#EAEBF3</color>
+
+    <color name="colorSpecialDark">#40b3fb</color>
+    <color name="colorSpeciallight">#E667BFF4</color>
+    <color name="colorAccent">#3B5998</color>
+    <color name="btnBlue">#007AFF</color>
+    <color name="txtBlue">#3591DA</color>
+    <color name="blueLight">#F2F7FB</color>
+
+    <color name="borderTab">#8c52ff</color>
+    <color name="voilet2">#AE8BF3</color>
+    <color name="hintLine">#444f5e </color>
+    <color name="pink">#FF1494</color>
+    <color name="black">#000000</color>
+    <color name="lightGray">#979797</color>
+    <color name="commentColor">#717D9C</color>
+    <color name="text_shadow">#7F000000</color>
+    <color name="white_light">#e7e7ef</color>
+    <color name="profile_line">#10161e</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_gray_back">#C4C4C4</color>
+    <color name="color_white_light">#E9FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="color_video_transparent">#88000000</color>
+    <color name="bottomTab">#07090d </color>
+    <!--App BAckground colors-->
+    <color name="green">#4CAF50</color>
+    <color name="saffron">#FF8A00</color>
+    <color name="saffron_light">#F1BB7C</color>
+    <color name="btn_main">#ED297B</color>
+    <color name="toolbar_color">#1D2E5D</color>
+    <color name="front_page_textViews">#A9A9A9</color>
+    <color name="green_app">#03DAC5</color>
+    <color name="blue_txt">#3B5998</color>
+    <color name="gray_txt2">#979797</color>
+    <color name="gray_light">#F6F6F6</color>
+
+
+    <color name="red_btn_bg_color">#FF0031</color>
+    <color name="success_stroke_color">#00E676</color>
+
+    <color name="gray_btn_bg_pressed_color">#B6B6B6</color>
+
+</resources>

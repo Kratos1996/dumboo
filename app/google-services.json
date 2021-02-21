@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "255938548343",
+    "project_id": "dumboo-aaee6",
+    "storage_bucket": "dumboo-aaee6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255938548343:android:4f468623595a7d439bac72",
+        "android_client_info": {
+          "package_name": "com.ishant.dumboo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255938548343-3iubal9pc56j8sc4piqvgaic5d3b4ln6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ishant.dumboo",
+            "certificate_hash": "e39f951de94896cd9d5a67b625418f7c0104e912"
+          }
+        },
+        {
+          "client_id": "255938548343-1gfuuok6lrideu3aj02ecirnfpgdbse3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD68doi00wIRmAa7GKvZ5yk-9Pkro7xafU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255938548343-1gfuuok6lrideu3aj02ecirnfpgdbse3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
