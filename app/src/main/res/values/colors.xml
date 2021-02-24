@@ -1,48 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00235D</color>
-    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorPrimary">#3A57FB</color>
+    <color name="colorPrimaryDark">#3A57FB</color>
     <color name="colorHomeBg">#EAEBF3</color>
 
     <color name="colorSpecialDark">#40b3fb</color>
     <color name="colorSpeciallight">#E667BFF4</color>
-    <color name="colorAccent">#3B5998</color>
+    <color name="colorAccent">#FF9100</color>
     <color name="btnBlue">#007AFF</color>
     <color name="txtBlue">#3591DA</color>
-    <color name="blueLight">#F2F7FB</color>
 
     <color name="borderTab">#8c52ff</color>
     <color name="voilet2">#AE8BF3</color>
-    <color name="hintLine">#444f5e </color>
+    <color name="hintLine">#444f5e</color>
     <color name="pink">#FF1494</color>
     <color name="black">#000000</color>
-    <color name="lightGray">#979797</color>
+    <color name="lightGray">#3F485C</color>
     <color name="commentColor">#717D9C</color>
     <color name="text_shadow">#7F000000</color>
     <color name="white_light">#e7e7ef</color>
     <color name="profile_line">#10161e</color>
     <color name="color_white">#ffffff</color>
-    <color name="color_gray_back">#C4C4C4</color>
+    <color name="color_gray_back">#EDEEF0</color>
     <color name="color_white_light">#E9FFFFFF</color>
     <color name="transparent">#00000000</color>
     <color name="color_video_transparent">#88000000</color>
-    <color name="bottomTab">#07090d </color>
-    <!--App BAckground colors-->
-    <color name="green">#4CAF50</color>
-    <color name="saffron">#FF8A00</color>
-    <color name="saffron_light">#F1BB7C</color>
-    <color name="btn_main">#ED297B</color>
-    <color name="toolbar_color">#1D2E5D</color>
-    <color name="front_page_textViews">#A9A9A9</color>
-    <color name="green_app">#03DAC5</color>
-    <color name="blue_txt">#3B5998</color>
-    <color name="gray_txt2">#979797</color>
-    <color name="gray_light">#F6F6F6</color>
 
+    <color name="colorTheme1">#3A57FB</color>
+    <color name="colorTheme2">#65A7F6</color>
 
-    <color name="red_btn_bg_color">#FF0031</color>
-    <color name="success_stroke_color">#00E676</color>
+    <color name="colorTheme3">#FF9100</color>
+    <color name="colorTheme4">#E6BC85</color>
 
+    <color name="colorTheme5">#FF1744</color>
+    <color name="colorTheme6">#ED5976</color>
+
+    <color name="colorTheme7">#FF1744</color>
+    <color name="colorTheme8">#ED5976</color>
+
+    <color name="colorTheme9">#007B5C</color>
+    <color name="colorTheme10">#00E676</color>
+    <!--Dialog Colors-->
+    <color name="float_transparent">#00000000</color>
+    <color name="sweet_dialog_bg_color">#FFFFFF</color>
+    <color name="button_text_color">#FFFFFF</color>
+    <color name="gray_btn_bg_color">#D0D0D0</color>
     <color name="gray_btn_bg_pressed_color">#B6B6B6</color>
+    <color name="blue_btn_bg_color">#AEDEF4</color>
+    <color name="blue_btn_bg_pressed_color">#96BFD2</color>
+    <color name="red_btn_bg_color">#FF0031</color>
+    <color name="red_btn_bg_pressed_color">#CD5B55</color>
+    <color name="error_stroke_color">#F27474</color>
+    <color name="success_stroke_color">#00E676</color>
+    <color name="trans_success_stroke_color">#33A5DC86</color>
+    <color name="warning_stroke_color">#F8BB86</color>
+    <color name="text_color">#575757</color>
+    <color name="material_blue_grey_80">#ff37474f</color>
+    <color name="material_blue_grey_90">#ff263238</color>
+    <color name="material_blue_grey_95">#ff21272b</color>
+    <color name="material_deep_teal_20">#ff80cbc4</color>
+    <color name="material_deep_teal_50">#ff009688</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
 
 </resources>

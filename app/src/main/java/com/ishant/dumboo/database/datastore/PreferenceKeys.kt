@@ -10,5 +10,12 @@ object PreferenceKeys {
     val DOUBLE_KEY : Preferences.Key<Double> = preferencesKey<Double>("double_key")
     val LONG_KEY : Preferences.Key<Long> = preferencesKey<Long>("long_key")
     val APP_NAME : Preferences.Key<String> = preferencesKey<String>("Dumboo")
+    val IS_APP_LOGGED_IN : Preferences.Key<Boolean> = preferencesKey<Boolean>("app_logged_in")
+    val IS_HELLO_SCREEN_VISIBLE : Preferences.Key<Boolean> = preferencesKey<Boolean>("helloScreenVisible")
+    val IS_LOCATION_SHARE : Preferences.Key<Boolean> = preferencesKey<Boolean>("isLocationShared")
+    val IS_PRIVATED : Preferences.Key<Boolean> = preferencesKey<Boolean>("isYourInformationPrivate")
+    val NAME : Preferences.Key<String> = preferencesKey<String>("name")
+    val EMAIL : Preferences.Key<String> = preferencesKey<String>("email")
+    val MOBILE : Preferences.Key<String> = preferencesKey<String>("phone")
     //val LIST_MODEL_KEY : Preferences.Key<List<CustomModel>> = preferencesKey<List<CustomModel>>("list_model_key")
 }

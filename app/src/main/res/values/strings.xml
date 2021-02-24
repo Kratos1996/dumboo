@@ -141,5 +141,8 @@
     <string name="logout">Logout</string>
     <string name="about_us">About us</string>
     <string name="notifications">Notifications</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 </resources>

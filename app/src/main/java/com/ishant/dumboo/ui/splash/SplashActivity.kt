@@ -12,6 +12,7 @@ import com.ishant.dumboo.animation.MyBounceInterpolator
 import com.ishant.dumboo.base.DumbooBaseActivity
 import com.ishant.dumboo.databinding.MainBinder
 import com.ishant.dumboo.ui.home.HomeActivity
+import com.ishant.dumboo.ui.login.LoginActivity
 import kotlinx.coroutines.*
 import java.util.*
 
@@ -58,7 +59,7 @@ class SplashActivity : DumbooBaseActivity() {
 
     suspend fun swapActivty() {
         delay(3000L)
-        startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
+        startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
     }
 
     private fun observeAppName() {

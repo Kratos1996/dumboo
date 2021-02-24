@@ -144,6 +144,8 @@ dependencies {
     implementation 'com.jakewharton.rxbinding3:rxbinding:3.1.0'
     implementation 'com.jakewharton.rxbinding3:rxbinding-core:3.1.0'
     implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.3@aar'
+    //Pin view
+    implementation 'com.github.aabhasr1:OtpView:v1.1.2'
 
 
 }
