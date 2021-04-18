@@ -36,8 +36,7 @@
     <!--    Login Page    -->
     <string name="we_need_to_verify_your_phone_number_to_get_started">We need to verify your phone number to get started.</string>
     <string name="phone_verification">Phone Verification</string>
-    <string name="_91">+91</string>
-    <string name="enter_number">Enter Phone Number</string>
+    <string name="enter_number">Phone Number</string>
     <string name="send_the_code">Send the Code</string>
     <string name="enter_the_otp_sent_to">Enter the OTP sent to</string>
     <string name="otp_verification">OTP Verification</string>
@@ -144,5 +143,6 @@
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="try_again">Please Try Again!!</string>
 
 </resources>

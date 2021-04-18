@@ -15,7 +15,9 @@ object PreferenceKeys {
     val IS_LOCATION_SHARE : Preferences.Key<Boolean> = preferencesKey<Boolean>("isLocationShared")
     val IS_PRIVATED : Preferences.Key<Boolean> = preferencesKey<Boolean>("isYourInformationPrivate")
     val NAME : Preferences.Key<String> = preferencesKey<String>("name")
+    val USERID : Preferences.Key<String> = preferencesKey<String>("userId")
     val EMAIL : Preferences.Key<String> = preferencesKey<String>("email")
     val MOBILE : Preferences.Key<String> = preferencesKey<String>("phone")
+    val COUNTRY_CODE : Preferences.Key<String> = preferencesKey<String>("countryCode")
     //val LIST_MODEL_KEY : Preferences.Key<List<CustomModel>> = preferencesKey<List<CustomModel>>("list_model_key")
 }

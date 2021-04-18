@@ -46,6 +46,28 @@ class DataStoreCustom :DataStoreBase {
         }
     }
 
+    override suspend fun setPhoneNumber(mobileNumber: String) {
+        dataStore?.edit { preference ->
+            preference.set(PreferenceKeys.MOBILE, mobileNumber)
+        }
+    }
+
+    override suspend fun setCountryCode(countryCode: String) {
+        dataStore?.edit { preference ->
+            preference.set(PreferenceKeys.COUNTRY_CODE, countryCode)
+        }
+    }
+
+    override suspend fun setName(name: String) {
+        dataStore?.edit { preference ->
+            preference.set(PreferenceKeys.NAME, name)
+        }
+    }
+
+    override suspend fun setUserId(userId: String) {
+       dataStore?.edit { preferences -> preferences.set(PreferenceKeys.USERID,userId) }
+    }
+
     override suspend fun update(integerKey : Int) {
         dataStore?.edit { preference ->
             preference.set(PreferenceKeys.INTEGER_KEY, integerKey)
@@ -71,9 +93,27 @@ class DataStoreCustom :DataStoreBase {
     override fun getString() : Flow<String> {
         return getString(PreferenceKeys.STRING_KEY)
     }
+
+    override fun getUserId(): Flow<String> {
+        return getString(PreferenceKeys.USERID)
+    }
+
     override fun getAppName() : Flow<String> {
         return getString(PreferenceKeys.APP_NAME)
     }
+
+    override fun getMobileNumber(): Flow<String> {
+       return getString(PreferenceKeys.MOBILE)
+    }
+
+    override fun getName(): Flow<String> {
+        return getString(PreferenceKeys.NAME)
+    }
+
+    override fun getCountryCode(): Flow<String> {
+        return getString(PreferenceKeys.COUNTRY_CODE)
+    }
+
     override fun getLong() : Flow<Long> {
         return getLong(PreferenceKeys.LONG_KEY)
     }
@@ -141,5 +181,6 @@ class DataStoreCustom :DataStoreBase {
             preference.get(key) ?: 0
         } ?: emptyFlow()
     }
+
     //endregion
 }

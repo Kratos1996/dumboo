@@ -18,11 +18,27 @@ interface DataStoreBase {
 
     suspend fun update(longKey: Long)
 
+    suspend fun setPhoneNumber(mobileNumber: String)
+
+    suspend fun setCountryCode(countryCode : String)
+
+    suspend fun setName(name:String)
+
+    suspend fun setUserId(userId:String)
+
     fun getBoolean(): Flow<Boolean>
 
     fun getString(): Flow<String>
 
+    fun getUserId(): Flow<String>
+
     fun getAppName(): Flow<String>
+
+    fun getMobileNumber(): Flow<String>
+
+    fun getName():Flow<String>
+
+    fun getCountryCode(): Flow<String>
 
     fun getInteger(): Flow<Int>
 

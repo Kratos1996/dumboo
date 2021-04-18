@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottomnav_home"
+        android:icon="@drawable/home_ico"
+        android:title="Home" />
+
+
+    <item
+        android:id="@+id/contact"
+        android:icon="@drawable/contact"
+        android:title="Contact" />
+
+
+
+</menu>

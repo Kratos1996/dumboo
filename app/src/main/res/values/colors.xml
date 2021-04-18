@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3A57FB</color>
-    <color name="colorPrimaryDark">#3A57FB</color>
+
     <color name="colorHomeBg">#EAEBF3</color>
 
     <color name="colorSpecialDark">#40b3fb</color>
@@ -9,7 +8,16 @@
     <color name="colorAccent">#FF9100</color>
     <color name="btnBlue">#007AFF</color>
     <color name="txtBlue">#3591DA</color>
-
+    <color name="colorPrimary">#AE1C29</color>
+    <color name="colorPrimary2">#CC9B5E</color>
+    <color name="colorPrimaryDark">#21468C</color>
+    <color name="colorPrimary_2">#21468C</color>
+    <color name="hint_color">#9098B1</color>
+    <color name="colorstrock">#EBF0FF</color>
+    <color name="colorstrock2">#AE1C29</color>
+    <color name="colorAccent2">#653B5998</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray_light">#F6F6F6</color>
     <color name="borderTab">#8c52ff</color>
     <color name="voilet2">#AE8BF3</color>
     <color name="hintLine">#444f5e</color>
