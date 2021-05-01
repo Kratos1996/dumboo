@@ -105,7 +105,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     //Lottie Animation
     implementation 'com.airbnb.android:lottie:3.5.0'
-
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.7.0'
     //Retrofit
     implementation 'com.google.code.gson:gson:2.8.6'
     // Navigation Components

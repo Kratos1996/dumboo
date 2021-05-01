@@ -58,19 +58,6 @@ class SharedPre private constructor(context: Context) {
     val name: String?
         get() = GetDataString(NAME)
 
-    fun setEmailProfile(googleProfile: String) {
-        SetDataString(OUR_PROFILE, googleProfile)
-    }
-
-    val emailProfile: String?
-        get() = GetDataString(OUR_PROFILE)
-
-    fun setClientProfile(profileClient: String) {
-        SetDataString(CLIENT_PROFILE, profileClient)
-    }
-
-    val clientProfile: String?
-        get() = GetDataString(CLIENT_PROFILE)
 
     fun setUserEmail(email: String) {
         SetDataString(EMAIL, email)
@@ -85,119 +72,21 @@ class SharedPre private constructor(context: Context) {
         set(notificationMuted) {
             SetDataBoolean(NOTIFICATION_MUTED, notificationMuted)
         }
-    val notificationSound: String?
-        get() = GetDataString(RINGTON_PATH)
 
-    fun setNotificationSound(uri: String) {
-        SetDataString(RINGTON_PATH, uri)
+    fun getConatctList(): String? {
+        return GetDataString(FAV_CONTACT_LIST)
     }
 
-    val notificationStatusKey: String?
-        get() = GetDataString(NOTIFICATION_STATUS_KEY)
-
-    fun setNotificationStatusKey(uri: String) {
-        SetDataString(NOTIFICATION_STATUS_KEY, uri)
+    fun setConatctList(value: String?) {
+        SetDataString(FAV_CONTACT_LIST, value!!)
     }
-
-    val notificationMessageKey: String?
-        get() = GetDataString(NOTIFICATION_MSG_KEY)
-
-    fun setNotificationMessageKey(uri: String) {
-        SetDataString(NOTIFICATION_MSG_KEY, uri)
-    }
-
-    val NotificationFrequency: Int?
-        get() = GetDataInt(NOTIFICATION_FREQUENCY_KEY)
-
-    fun setNotificationFrequency(value: Int) {
-        SetDataInt(NOTIFICATION_FREQUENCY_KEY, value)
-    }
-
-    fun getWeight(): Int {
-        return GetDataInt(WEIGHT_KEY)
-    }
-
-    fun setWeight(value: Int) {
-        return SetDataInt(WEIGHT_KEY, value)
-    }
-
-    fun getTotalIntake(): Int {
-
-        return GetDataInt(TOTAL_INTAKE)
-    }
-
-    fun setTotalIntake(value: Int) {
-        totalIntakeMutable.postValue(value)
-        return SetDataInt(TOTAL_INTAKE, value)
-    }
-
-    fun getCurrentIntake(): Int {
-        return GetDataInt(CURRENT_INTAKE)
-    }
-
-    fun setCurrentIntake(value: Int) {
-        return SetDataInt(CURRENT_INTAKE, value)
-    }
-
-    fun getSleepingTime(): Long {
-        return GetDataLong(SLEEPING_TIME_KEY)
-    }
-
-    fun setSleepingTime(value: Long) {
-        return SetDataLong(SLEEPING_TIME_KEY, value)
-    }
-
-    fun getWakeUpTime(): Long {
-        return GetDataLong(WAKEUP_TIME)
-    }
-
-    fun setWakeUpTime(value: Long) {
-        return SetDataLong(WAKEUP_TIME, value)
-    }
-
-    fun isStopService(): Boolean {
-        return GetDataBooleanTrue(STOP_SERVICE)
-    }
-
-    fun StopService(value: Boolean) {
-        return SetDataBoolean(STOP_SERVICE, value)
-    }
-
-    fun isFirstRun(): Boolean {
-        return GetDataBoolean(FIRST_RUN_KEY)
-    }
-
-    fun setFirstRun(vaue: Boolean) {
-        return SetDataBoolean(FIRST_RUN_KEY, vaue)
-    }
-
-    fun setWorkTime(calue: Int) {
-        SetDataInt(WORK_TIME_KEY, calue)
-    }
-
-    fun getWorkTime(): Int {
-        return GetDataInt(WORK_TIME_KEY)
-    }
-    fun setWaterWorkerId(calue: String) {
-        SetDataString(WATER_WORKER_ID, calue)
-    }
-
-    fun getWaterWorker(): String? {
-        return GetDataString(WATER_WORKER_ID)
-    }
-
     private fun LogoutPrefrences() {
         removePreferences(NAME, mContext)
         removePreferences(EMAIL, mContext)
-        removePreferences(OUR_PROFILE, mContext)
-        removePreferences(CLIENT_PROFILE, mContext)
-        removePreferences(CLIENT_ID, mContext)
         removePreferences(MOBILE_NO, mContext)
         removePreferences(IS_LOGGED_IN, mContext)
         removePreferences(IS_REGISTER, mContext)
         removePreferences(USER_ID, mContext)
-        removePreferences(FIREBASE_TOKEN, mContext)
-        removePreferences(RINGTON_PATH, mContext)
         removePreferences(NOTIFICATION_MUTED, mContext)
     }
     public  var totalIntakeMutable=MutableLiveData<Int>()
@@ -206,31 +95,15 @@ class SharedPre private constructor(context: Context) {
         private const val ITI = "DUMBOO"
         private const val EMAIL = "email"
         private const val NAME = "name"
-        private const val OUR_PROFILE = "myProfileFromApi"
-        private const val CLIENT_PROFILE = "profileFromFaceBook"
-        private const val CLIENT_ID = "clientId"
         private const val MOBILE_NO = "mobile_no"
         private const val APP_BACKGROUND = "app_in_background"
         private const val IS_LOGGED_IN = "login"
         private const val IS_REGISTER = "register"
         private const val USER_ID = "userId"
-        private const val FIREBASE_TOKEN = "firebaseToken"
-        private const val RINGTON_PATH = "rington"
         private const val NOTIFICATION_MUTED = "notification_muted"
-        private const val STOP_SERVICE = "StopService"
-        private const val WEIGHT_KEY = "weight"
-        private const val WORK_TIME_KEY = "worktime"
-        private const val TOTAL_INTAKE = "totalintake"
-        private const val CURRENT_INTAKE = "currentIntake"
-        private const val NOTIFICATION_STATUS_KEY = "notificationstatus"
-        private const val NOTIFICATION_FREQUENCY_KEY = "notificationfrequency"
-        private const val NOTIFICATION_MSG_KEY = "notificationmsg"
-        private const val SLEEPING_TIME_KEY = "sleepingtime"
-        private const val WAKEUP_TIME = "wakeuptime"
-        private const val NOTIFICATION_TONE_URI_KEY = "notificationtone"
-        private const val FIRST_RUN_KEY = "firstrun"
-        private const val WATER_DATA_OF_THE_DAY = "date_of_water Data add"
-        private const val WATER_WORKER_ID = "water_worker_id"
+        private const val FAV_CONTACT_LIST = "contactList"
+
+
         private var Instance: SharedPre? = null
 
 
@@ -325,14 +198,6 @@ class SharedPre private constructor(context: Context) {
     fun Logout() {
         getSharedPreferences(mContext).edit().clear().commit()
         LogoutPrefrences()
-    }
-
-    fun setDailyDate(dateNow: String) {
-        SetDataString(WATER_DATA_OF_THE_DAY, dateNow)
-    }
-
-    fun getWaterDate(): String? {
-        return GetDataString(WATER_DATA_OF_THE_DAY)
     }
 
 

@@ -21,10 +21,6 @@ private lateinit var binding:ActivityHomeBinding
         super.onCreate(savedInstanceState)
         binding=DataBindingUtil.setContentView(this,R.layout.activity_home)
         binding.bottomNavigation.setOnNavigationItemSelectedListener(this::onNavigationItemSelected)
-        binding.toolbar.switch1.isChecked = !sharedPre.isStopService()
-        binding.toolbar.switch1.setOnCheckedChangeListener { buttonView, isChecked ->
-            sharedPre.StopService(!isChecked)
-        }
         startFragment(HomeFragment.newInstance(), HomeFragment.toString(), true)
     }
 
@@ -85,7 +81,7 @@ private lateinit var binding:ActivityHomeBinding
             }
             R.id.contact -> {
                 if (getCurrentFragment() !is ContactFragment)
-                    startFragment(ContactFragment.newInstance(), true, ContactFragment.toString())
+                    startFragment(ContactFragment.newInstance(viewmodel), true, ContactFragment.toString())
             }
 
             else -> {

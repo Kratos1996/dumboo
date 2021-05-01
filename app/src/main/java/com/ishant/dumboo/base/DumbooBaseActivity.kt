@@ -34,9 +34,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-abstract class DumbooBaseActivity : AppCompatActivity() , PhonecallReceiver.CallAccess,
+abstract class DumbooBaseActivity : AppCompatActivity(), PhonecallReceiver.CallAccess,
     RingtonAccessReceiver.GetPhoneRingTypeAccess {
     private var addToBackStack = false
+    val viewmodel: HomeViewModel by viewModels()
     @Inject
     lateinit var manager: FragmentManager
     private var transaction: FragmentTransaction? = null
@@ -49,9 +50,11 @@ abstract class DumbooBaseActivity : AppCompatActivity() , PhonecallReceiver.Call
     var isSilentModeActivated = false
     var am: AudioManager? = null
     private var ringAccessListner: RingtonAccessReceiver.GetPhoneRingTypeAccess? = null
-    val viewmodel: HomeViewModel by viewModels()
+
+
     @Inject
     lateinit var methods: MethodsRepo
+
     @Inject
     lateinit var sharedPre: SharedPre
     override fun attachBaseContext(newBase: Context?) {
@@ -71,7 +74,8 @@ abstract class DumbooBaseActivity : AppCompatActivity() , PhonecallReceiver.Call
         }
 
     }
-    fun getUtils():MethodsRepo{
+
+    fun getUtils(): MethodsRepo {
         return methods!!
     }
 
