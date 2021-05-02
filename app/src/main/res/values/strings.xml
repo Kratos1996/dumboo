@@ -144,5 +144,6 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="try_again">Please Try Again!!</string>
+    <string name="contacts">Dumboo Contacts</string>
 
 </resources>

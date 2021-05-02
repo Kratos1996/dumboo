@@ -3,7 +3,6 @@ package com.ishant.dumboo.ui.contact
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,10 +13,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.ishant.dumboo.R
 import com.ishant.dumboo.base.DumbooBaseActivity
-import com.ishant.dumboo.database.roomdatabase.ContactList
 import com.ishant.dumboo.databinding.HomeFragmentBinding
 import com.ishant.dumboo.ui.contact.adapter.FavContactyAdapter
+import com.ishant.dumboo.ui.home.HomeActivity
 import com.ishant.dumboo.ui.home.HomeViewModel
+import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.toolbar.view.*
 
 class ContactFragment : Fragment() {
     private lateinit var binding: HomeFragmentBinding
@@ -49,7 +50,7 @@ class ContactFragment : Fragment() {
             false
         )
         (requireActivity() as DumbooBaseActivity).showCustomAlert("Please Wait While Contacts Is Loading",binding.root)
-
+        (requireActivity() as HomeActivity).toolbar.headerName.text=getString(R.string.contacts)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(
                 requireContext(),
                 Manifest.permission.READ_CONTACTS
@@ -63,7 +64,7 @@ class ContactFragment : Fragment() {
         } else {
             viewModel.LoadContact(requireActivity())
         }
-        adapter = FavContactyAdapter(requireContext(), 1)
+        adapter = FavContactyAdapter(requireContext(), 1, viewModel)
         binding.ContactListRecycler.adapter = adapter
         viewModel.repository.GetContactList().observe(requireActivity(), Observer {
             if (it != null && it.size > 0) {

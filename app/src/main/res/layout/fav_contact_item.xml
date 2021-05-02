@@ -53,13 +53,14 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_5sdp"
                             android:layout_marginRight="@dimen/_5sdp"
-                            android:text="91-7732993378"
+                            android:text=""
                             android:textColor="@color/black"
                             android:textSize="@dimen/_13ssp" />
-                       <CheckBox
+                       <ImageView
                            android:layout_width="0dp"
-                           android:layout_height="wrap_content"
+                           android:layout_height="@dimen/_20sdp"
                            android:layout_weight=".1"
+                           android:src="@drawable/check_not_select"
                            android:visibility="visible"
                            android:id="@+id/isContactSelect"/>
 

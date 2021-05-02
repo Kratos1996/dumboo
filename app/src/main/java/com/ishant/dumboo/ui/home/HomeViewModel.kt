@@ -9,7 +9,9 @@ import android.provider.ContactsContract
 import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.Observer
 import com.google.i18n.phonenumbers.PhoneNumberUtil
+import com.ishant.dumboo.base.DumbooBaseActivity
 import com.ishant.dumboo.database.prefrence.SharedPre
 import com.ishant.dumboo.database.roomdatabase.ContactList
 import com.ishant.dumboo.database.roomdatabase.DatabaseRepository
@@ -67,12 +69,14 @@ class HomeViewModel : AndroidViewModel {
                                            ContactsContract.CommonDataKinds.Phone.NUMBER
                                        )
                                    )
-                                   number = phoneNumber
                                     number = deleteCountry(phoneNumber)
                                    if (!mobileNoSet.contains(number)) {
-                                       mobileNoSet.add(number);
-                                       var contact = ContactList(number, name)
-                                       repository.InsertContact(contact)
+                                       mobileNoSet.add(number)
+                                      val data= repository.GetContact(number)
+                                       if(data==null && !number.equals("0")){
+                                           var contact = ContactList(number, name,false)
+                                           repository.InsertContact(contact)
+                                       }
                                        Log.d(
                                            "hvy", "onCreaterrView  Phone Number: name = " + name
                                                    + " No = " + number
@@ -98,8 +102,8 @@ class HomeViewModel : AndroidViewModel {
     fun deleteCountry(phone: String) : String{
         val phoneInstance = PhoneNumberUtil.getInstance()
         try {
-            val phoneNumber = phoneInstance.parse(phone, null)
-            return phoneNumber?.nationalNumber?.toString()?:phone
+            val phoneNumber = phoneInstance.parse(phone, "+91")
+            return phoneNumber?.nationalNumber?.toString()?:"0"
         }catch (_ : Exception) {
         }
         return phone

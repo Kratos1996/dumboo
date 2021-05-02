@@ -9,4 +9,5 @@ import org.jetbrains.annotations.NotNull
 @Entity
 data class ContactList(@PrimaryKey(autoGenerate = false)
                        var PhoneNumber:String,
-                       @ColumnInfo var Name: String)
+                       @ColumnInfo var Name: String,
+@ColumnInfo var isFav:Boolean)

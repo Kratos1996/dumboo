@@ -12,13 +12,14 @@ import com.ishant.dumboo.database.prefrence.SharedPre
 import com.ishant.dumboo.database.roomdatabase.ContactList
 import com.ishant.dumboo.databinding.FavContactItemBinding
 import com.ishant.dumboo.ui.contact.adapter.FavContactyAdapter.FavContactViewHolder
-import java.util.*
+import com.ishant.dumboo.ui.home.HomeViewModel
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kotlin.collections.ArrayList
 
-class FavContactyAdapter(var context: Context,val type:Int) :
+class FavContactyAdapter(var context: Context, val type: Int, val viewModel: HomeViewModel) :
     RecyclerView.Adapter<FavContactViewHolder>() {
     private var getAllContact: List<ContactList> = ArrayList()
-    private var selected: ArrayList<ContactList> = ArrayList()
     private var sharedPre:SharedPre?=null
     init {
         sharedPre= SharedPre.getInstance(context)
@@ -42,24 +43,31 @@ class FavContactyAdapter(var context: Context,val type:Int) :
     }
 
     override fun onBindViewHolder(holder: FavContactViewHolder, position: Int) {
+
         holder.binding.headername.text=getAllContact.get(position).Name
+        if(getAllContact.get(position).isFav){
+            holder.binding.isContactSelect.setImageResource(R.drawable.check1)
+        }else{
+            holder.binding.isContactSelect.setImageResource(R.drawable.check_not_select)
+        }
         holder.binding.contactNumber.text=getAllContact.get(position).PhoneNumber
         if(type==1){
             holder.binding.isContactSelect.visibility=View.VISIBLE
             holder.binding.isContactSelect.setOnClickListener {
-                if(holder.binding.isContactSelect.isSelected){
-                    for (i in 0.. getAllContact.size) {
-                        if (selected.get(i).PhoneNumber.equals(getAllContact.get(i).PhoneNumber)) {
-                            selected.removeAt(i)
-                            sharedPre!!.setConatctList(Gson().toJson(selected,ContactList::class.java))
-                        }
+                if(getAllContact.get(position).isFav){
+                    holder.binding.isContactSelect.setImageResource(R.drawable.check_not_select)
+                    GlobalScope.launch {
+                        viewModel.repository.SetFavContact(getAllContact.get(position).PhoneNumber,false)
                     }
                 } else {
-                    selected.add(getAllContact.get(position))
-                    sharedPre!!.setConatctList(Gson().toJson(selected,ContactList::class.java))
+                    holder.binding.isContactSelect.setImageResource(R.drawable.check1)
+                    GlobalScope.launch {
+                        viewModel.repository.SetFavContact(getAllContact.get(position).PhoneNumber,true)
+                    }
                 }
             }
         }else{
+
             holder.binding.isContactSelect.visibility=View.INVISIBLE
         }
 
@@ -73,6 +81,7 @@ class FavContactyAdapter(var context: Context,val type:Int) :
     inner class FavContactViewHolder(val binding: FavContactItemBinding) : RecyclerView.ViewHolder(
         binding.root
     )
+
 
     }
 

@@ -13,6 +13,15 @@ class DatabaseRepository @Inject constructor(val db: AppDB, val context: Context
             db.getDao().insert(contact)
         }
     }
+    fun GetContact(phone:String):ContactList{
+        return db.getDao().GetPhone(phone)
+    }
+    fun SetFavContact( phone:String,isFav:Boolean){
+        GlobalScope.launch {
+            val int = db.getDao().setFavPhone(phone, isFav)
+             val data=int
+        }
+    }
     fun DeleteAll() {
         GlobalScope.launch {
             db.getDao().DeleteAllContacts()

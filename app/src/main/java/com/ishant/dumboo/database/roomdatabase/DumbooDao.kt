@@ -13,4 +13,11 @@ interface DumbooDao {
 
     @Query("Delete From ContactList")
     fun DeleteAllContacts()
+
+    @Query("Select * From ContactList where PhoneNumber=:phone")
+    fun GetPhone(phone:String):ContactList
+
+    @Query("Update ContactList set isFav=:isFav Where PhoneNumber=:phone")
+    fun setFavPhone(phone:String,isFav:Boolean):Int
+
 }
