@@ -1,25 +1,26 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.4.30"
-    ext.hilt_version = '2.32-alpha'
-    ext.androidx_hilt_version = '1.0.0-alpha01'
+    ext.kotlin_version = "1.5.0-RC"
+    ext.hilt_version = '2.33-beta'
+    ext.androidx_hilt_version = '1.0.0-alpha03'
     ext.coroutines_version = '1.4.2'
     ext.viewmodel_version = '2.2.0'
-    ext.datastore_version = '1.0.0-alpha05'
-    ext.room_version = '2.2.5'
-    ext.workmanager_version = '2.3.4'
+    ext.datastore_version = '1.0.0-beta01'
+    ext.room_version = '2.3.0'
+    ext.workmanager_version = '2.6.0-alpha02'
     ext.okHttpVersion = '3.12.1'
     repositories {
         google()
+        mavenCentral()
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.2"
+        classpath 'com.android.tools.build:gradle:4.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
         classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:1.0.0"
         classpath 'com.google.gms:google-services:4.3.5'
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.5.0'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.5.2'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -28,8 +29,10 @@ buildscript {
 allprojects {
     repositories {
         google()
+        mavenCentral()
         jcenter()
         maven { url "https://jitpack.io" }
+
     }
 }
 

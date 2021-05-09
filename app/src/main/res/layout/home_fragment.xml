@@ -9,15 +9,50 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ContactListRecycler"
+    <LinearLayout
+        android:id="@+id/lay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"
-        tools:listitem="@layout/fav_contact_item"/>
+        android:orientation="vertical">
+        <EditText
+           style="@style/btnOutline"
+            android:hint="@string/search"
+            android:id="@+id/search"/>
+        <com.ishant.dumboo.custom.RecyclerViewFastScroller
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:handleHeight="32dp"
+            app:handleWidth="@dimen/_20sdp"
+            app:popupDrawable="@drawable/contacts_fastscroller_drawable"
+            android:id="@+id/fastscroll">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ContactListRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbarFadeDuration="200"
+                android:scrollbars="vertical"
+                android:scrollbarSize="@dimen/_5sdp"
+                android:scrollbarThumbVertical="@color/colorAccent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                tools:listitem="@layout/fav_contact_item"/>
+        </com.ishant.dumboo.custom.RecyclerViewFastScroller>
+
+
+    </LinearLayout>
+
+
+
+
+    <TextView
+        android:id="@+id/emptyContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Contacts Found"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

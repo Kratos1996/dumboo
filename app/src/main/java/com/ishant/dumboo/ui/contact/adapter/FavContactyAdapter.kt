@@ -1,13 +1,20 @@
 package com.ishant.dumboo.ui.contact.adapter
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
+import android.graphics.drawable.Drawable
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.ishant.dumboo.R
+import com.ishant.dumboo.custom.RecyclerViewFastScroller
 import com.ishant.dumboo.database.prefrence.SharedPre
 import com.ishant.dumboo.database.roomdatabase.ContactList
 import com.ishant.dumboo.databinding.FavContactItemBinding
@@ -16,11 +23,14 @@ import com.ishant.dumboo.ui.home.HomeViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlin.collections.ArrayList
+import kotlin.math.ln
+import kotlin.math.pow
 
 class FavContactyAdapter(var context: Context, val type: Int, val viewModel: HomeViewModel) :
-    RecyclerView.Adapter<FavContactViewHolder>() {
+    RecyclerView.Adapter<FavContactViewHolder>() , RecyclerViewFastScroller.OnPopupTextUpdate {
     private var getAllContact: List<ContactList> = ArrayList()
     private var sharedPre:SharedPre?=null
+    private var handleDrawable: Drawable?=null
     init {
         sharedPre= SharedPre.getInstance(context)
     }
@@ -81,7 +91,40 @@ class FavContactyAdapter(var context: Context, val type: Int, val viewModel: Hom
     inner class FavContactViewHolder(val binding: FavContactItemBinding) : RecyclerView.ViewHolder(
         binding.root
     )
-
-
+    override fun onChange(position: Int): CharSequence {
+        return if (getAllContact[position].Name.matches(Patterns.PHONE.toRegex()))
+            "#"
+        else
+            getAllContact[position].Name[0].toString().toUpperCase()
     }
+     fun onUpdate(position: Int, popupTextView: TextView) {
+        popupTextView.background.colorFilter = PorterDuffColorFilter(
+            getColor(power = position),
+            PorterDuff.Mode.SRC_IN
+        )
+        handleDrawable?.colorFilter = PorterDuffColorFilter(
+            getColor(power = position),
+            PorterDuff.Mode.SRC_IN
+        )
+
+        popupTextView.text = getAllContact[position].PhoneNumber.toLong().withSuffix()
+    }
+    private fun Long.withSuffix(): String {
+        if (this < 1000) return "" + this
+        val exp = (ln(this.toDouble()) / ln(1000.0)).toInt()
+        return String.format(
+            "%.1f%c",
+            this / 1000.0.pow(exp.toDouble()),
+            "kMBTPE"[exp - 1]
+        )
+    }
+
+    private fun getColor(power: Int): Int {
+        val h = (itemCount - power) * 100 / itemCount
+        val s = 1 // Saturation
+        val v = 0.8 // Value
+        return Color.HSVToColor(floatArrayOf(h.toFloat(), s.toFloat(), v.toFloat()))
+    }
+
+}
 

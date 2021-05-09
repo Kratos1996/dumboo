@@ -80,6 +80,13 @@ class SharedPre private constructor(context: Context) {
     fun setConatctList(value: String?) {
         SetDataString(FAV_CONTACT_LIST, value!!)
     }
+    fun getNameAnnouncer(): Boolean {
+        return GetDataBoolean(NAME_ANNOUNCER)
+    }
+
+    fun setNameAnnouncer(value: Boolean) {
+        SetDataBoolean(NAME_ANNOUNCER, value)
+    }
     private fun LogoutPrefrences() {
         removePreferences(NAME, mContext)
         removePreferences(EMAIL, mContext)
@@ -102,6 +109,7 @@ class SharedPre private constructor(context: Context) {
         private const val USER_ID = "userId"
         private const val NOTIFICATION_MUTED = "notification_muted"
         private const val FAV_CONTACT_LIST = "contactList"
+        private const val NAME_ANNOUNCER = "isNameAnnouncer"
 
 
         private var Instance: SharedPre? = null

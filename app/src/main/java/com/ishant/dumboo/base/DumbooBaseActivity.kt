@@ -34,40 +34,32 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-abstract class DumbooBaseActivity : AppCompatActivity(), PhonecallReceiver.CallAccess,
-    RingtonAccessReceiver.GetPhoneRingTypeAccess {
-    private var addToBackStack = false
+abstract class DumbooBaseActivity : AppCompatActivity(){
     val viewmodel: HomeViewModel by viewModels()
     @Inject
     lateinit var manager: FragmentManager
+    @Inject
+    lateinit var am: AudioManager
+    @Inject
+    lateinit var methods: MethodsRepo
+    @Inject
+    lateinit var sharedPre: SharedPre
+    private var addToBackStack = false
     private var transaction: FragmentTransaction? = null
     private var fragment: Fragment? = null
     private var rxPermissions: RxPermissions? = null
     private var doubleBackToExitPressedOnce = false
     private var auth: FirebaseAuth? = null
     private lateinit var snackBar: Snackbar
-    private var callAccess: PhonecallReceiver.CallAccess? = null
     var isSilentModeActivated = false
-    var am: AudioManager? = null
-    private var ringAccessListner: RingtonAccessReceiver.GetPhoneRingTypeAccess? = null
 
-
-    @Inject
-    lateinit var methods: MethodsRepo
-
-    @Inject
-    lateinit var sharedPre: SharedPre
     override fun attachBaseContext(newBase: Context?) {
         super.attachBaseContext(newBase)
     }
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        callAccess = this
-        ringAccessListner = this
-        (applicationContext as DumbooApplication).setRingListner(ringAccessListner)
-        am = getSystemService(AUDIO_SERVICE) as AudioManager
-        when (am!!.getRingerMode()) {
+        when (am.getRingerMode()) {
             AudioManager.RINGER_MODE_SILENT -> isSilentModeActivated = true
             AudioManager.RINGER_MODE_VIBRATE -> isSilentModeActivated = true
             AudioManager.RINGER_MODE_NORMAL -> isSilentModeActivated = false
@@ -76,7 +68,7 @@ abstract class DumbooBaseActivity : AppCompatActivity(), PhonecallReceiver.CallA
     }
 
     fun getUtils(): MethodsRepo {
-        return methods!!
+        return methods
     }
 
 
@@ -101,7 +93,7 @@ abstract class DumbooBaseActivity : AppCompatActivity(), PhonecallReceiver.CallA
 
 
     open fun startFragment(fragment: Fragment?, backStackTag: String?, addToBackStack: Boolean) {
-        transaction = manager!!.beginTransaction()
+        transaction = manager.beginTransaction()
         this.addToBackStack = addToBackStack
         transaction!!.addToBackStack(backStackTag)
         transaction!!.replace(R.id.container, fragment!!)
@@ -112,9 +104,9 @@ abstract class DumbooBaseActivity : AppCompatActivity(), PhonecallReceiver.CallA
 
     open fun startFragment(fragment: Fragment?, addToBackStack: Boolean, backStackTag: String?) {
         this.addToBackStack = addToBackStack
-        val fragmentPopped = manager!!.popBackStackImmediate(backStackTag, 0)
+        val fragmentPopped = manager.popBackStackImmediate(backStackTag, 0)
         if (!fragmentPopped) {
-            transaction = manager!!.beginTransaction()
+            transaction = manager.beginTransaction()
             if (addToBackStack) {
                 transaction!!.addToBackStack(backStackTag)
             } else {
@@ -196,8 +188,8 @@ abstract class DumbooBaseActivity : AppCompatActivity(), PhonecallReceiver.CallA
                     doubleBackToExitPressedOnce = false
                 }
             } else {
-                if (manager != null && manager!!.backStackEntryCount > 0) {
-                    manager!!.popBackStackImmediate()
+                if ( manager.backStackEntryCount > 0) {
+                    manager.popBackStackImmediate()
                 } else {
                     super.onBackPressed()
                 }

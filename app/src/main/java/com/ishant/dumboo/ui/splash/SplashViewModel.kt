@@ -8,13 +8,7 @@ import androidx.lifecycle.asLiveData
 import com.ishant.dumboo.database.datastore.DataStoreBase
 import com.ishant.dumboo.database.datastore.DataStoreCoroutinesHandler
 
-class SplashViewModel : AndroidViewModel {
-    private var datastore:DataStoreBase
-    @ViewModelInject
-    constructor (datastore:DataStoreBase,application:Application):super(Application()){
-        this.datastore = datastore
-
-    }
+class SplashViewModel @ViewModelInject constructor(private var datastore: DataStoreBase, application: Application) : AndroidViewModel(Application()) {
     fun getInstance() : String {
         return this.toString()
     }

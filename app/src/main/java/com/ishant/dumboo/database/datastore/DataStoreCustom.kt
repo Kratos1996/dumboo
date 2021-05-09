@@ -4,10 +4,12 @@ package com.ishant.dumboo.database.datastore
 * Ishant Sharma
 * Java and Kotlin
 * */
+import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
+import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emptyFlow
@@ -15,73 +17,70 @@ import kotlinx.coroutines.flow.map
 import java.io.IOException
 import javax.inject.Inject
 
-class DataStoreCustom :DataStoreBase {
-    private val dataStore  : DataStore<Preferences>
+class DataStoreCustom @Inject constructor(val context:Context) :DataStoreBase {
+    companion object {
+        private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "Dumboo")
 
-    @Inject
-    constructor (dataStore  : DataStore<Preferences>) {
-        this.dataStore = dataStore
     }
-
     override fun giveRepository() : String {
         return this.toString()
     }
     //region CRUD Operation
     override suspend fun update(booleanKey : Boolean) {
-        dataStore?.edit { preference ->
+        context.dataStore.edit { preference ->
             preference.set(PreferenceKeys.BOOLEAN_KEY, booleanKey)
         }
     }
 
     override suspend fun update(stringKey : String) {
 
-        dataStore?.edit { preference ->
+        context. dataStore.edit { preference ->
             preference.set(PreferenceKeys.STRING_KEY, stringKey)
         }
     }
     override suspend fun updateAppname(appName : String) {
 
-        dataStore?.edit { preference ->
+        context. dataStore.edit { preference ->
             preference.set(PreferenceKeys.APP_NAME, appName)
         }
     }
 
     override suspend fun setPhoneNumber(mobileNumber: String) {
-        dataStore?.edit { preference ->
+        context. dataStore.edit { preference ->
             preference.set(PreferenceKeys.MOBILE, mobileNumber)
         }
     }
 
     override suspend fun setCountryCode(countryCode: String) {
-        dataStore?.edit { preference ->
+        context.dataStore.edit { preference ->
             preference.set(PreferenceKeys.COUNTRY_CODE, countryCode)
         }
     }
 
     override suspend fun setName(name: String) {
-        dataStore?.edit { preference ->
+        context.dataStore.edit { preference ->
             preference.set(PreferenceKeys.NAME, name)
         }
     }
 
     override suspend fun setUserId(userId: String) {
-       dataStore?.edit { preferences -> preferences.set(PreferenceKeys.USERID,userId) }
+        context.dataStore.edit { preferences -> preferences.set(PreferenceKeys.USERID,userId) }
     }
 
     override suspend fun update(integerKey : Int) {
-        dataStore?.edit { preference ->
+        context.dataStore.edit { preference ->
             preference.set(PreferenceKeys.INTEGER_KEY, integerKey)
         }
     }
 
     override suspend fun update(doubleKey : Double) {
-        dataStore?.edit { preference ->
+        context.dataStore.edit { preference ->
             preference.set(PreferenceKeys.DOUBLE_KEY, doubleKey)
         }
     }
 
     override suspend fun update(longKey : Long) {
-        dataStore?.edit { preference ->
+        context.dataStore.edit { preference ->
             preference.set(PreferenceKeys.LONG_KEY, longKey)
         }
     }
@@ -127,59 +126,59 @@ class DataStoreCustom :DataStoreBase {
 
     //Predefine Function to get Data Using Keys
     fun getString(key:Preferences.Key<String> ):Flow<String>{
-        return dataStore?.data?.catch { exception ->
+        return context.dataStore.data.catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())
             } else {
                 throw exception
             }
-        }?.map { preference ->
+        }.map { preference ->
             preference.get(key) ?: "Null"
-        } ?: emptyFlow()
+        }
     }
      fun getLong(key:Preferences.Key<Long>) : Flow<Long> {
-        return dataStore?.data?.catch { exception ->
+        return context.dataStore.data.catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())
             } else {
                 throw exception
             }
-        }?.map { preference ->
+        }.map { preference ->
             preference.get(key) ?: 0L
-        } ?: emptyFlow()
+        }
     }
      fun getDouble(key:Preferences.Key<Double>) : Flow<Double> {
-        return dataStore?.data?.catch { exception ->
+        return context.dataStore.data.catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())
             } else {
                 throw exception
             }
-        }?.map { preference ->
+        }.map { preference ->
             preference.get(key) ?: 0.00
-        } ?: emptyFlow()
+        }
     }
      fun getBooleanData(key:Preferences.Key<Boolean>) : Flow<Boolean> {
-        return dataStore?.data?.catch { exception ->
+        return context.dataStore.data.catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())
             } else {
                 throw exception
             }
-        }?.map { preference ->
+        }.map { preference ->
             preference.get(key) ?: false
-        } ?: emptyFlow()
+        }
     }
      fun getIntegerData(key:Preferences.Key<Int>) : Flow<Int> {
-        return dataStore?.data?.catch { exception ->
+        return context.dataStore.data.catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())
             } else {
                 throw exception
             }
-        }?.map { preference ->
+        }.map { preference ->
             preference.get(key) ?: 0
-        } ?: emptyFlow()
+        }
     }
 
     //endregion

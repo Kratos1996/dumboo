@@ -35,7 +35,7 @@ class DumbooApplication  : Hilt_DumbooApplication(){
             startService(Intent(this, MyService::class.java))
         }
     }
-    fun setConnectionListener(listener: PhonecallReceiver.CallAccess?) {
+    fun setCallListener(listener: PhonecallReceiver.CallAccess?) {
         PhonecallReceiver.callAccess = listener
     }
 

@@ -1,6 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Dumboo</string>
-    <string name="youtube_api">AIzaSyAQE9cPjvm4pQ4K7byGgo1h1-in9L6Gz4M</string>
     <string name="username">User Name</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -30,7 +29,7 @@
     <string name="forget">Forgot Password ?</string>
     <string name="login_with_pass">Login With Password</string>
     <string name="search_items">Search Items</string>
-    <string name="search">Search</string>
+    <string name="search">Search your Contacts</string>
 
 
     <!--    Login Page    -->
@@ -45,91 +44,24 @@
     <string name="detecting_otp_60">Detecting OTP : 60</string>
     <string name="verify_proceed"><![CDATA[Verify & Proceed]]></string>
     <string name="hi">Hi !</string>
-    <string name="student_name">Student Name</string>
     <string name="slider">Slider</string>
-    <string name="study_material">Study Material</string>
     <string name="image">image</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
-    <string name="number">Number</string>
+    <string name="number">Mobile</string>
     <string name="save">Save</string>
     <string name="user_name">User Name</string>
     <string name="download">Download</string>
 
-    <!--Youtube Strings-->
-    <string name="videowall_demo_name">Video Wall</string>
-    <string name="videolist_demo_name">Video List</string>
-    <string name="standalone_player_demo_name">Standalone Player</string>
-    <string name="playerview_demo_name">Simple PlayerView</string>
-    <string name="fragment_demo_name">Simple PlayerFragment</string>
-    <string name="player_controls_demo_name">Custom Player Controls</string>
-    <string name="action_bar_demo_name">Overlay ActionBar Demo</string>
-    <string name="fullscreen_demo_name">Custom Fullscreen Handling</string>
-    <string name="intents_demo_name">YouTube App Launcher Intents</string>
-
-    <string name="playerview_text">This is a YouTubePlayerView!</string>
-    <string name="playerfragment_text">This is a YouTubePlayerFragment!</string>
-
-    <string name="demo_select">Please select a demo:</string>
-    <string name="some_demos_disabled">* Your device is currently running Android API version <xliff:g id="current_version">%1$s</xliff:g>.</string>
-    <string name="list_item_disabled">Requires Android API version <xliff:g id="required_version">%1$s</xliff:g> or higher.</string>
-
-    <string name="play">Play</string>
-    <string name="pause">Pause</string>
-    <string name="skip_to">Skip To</string>
-    <string name="seconds">secs</string>
-    <string name="player_style">Player Style</string>
-    <string name="def">Default</string>
-    <string name="minimal">Minimal</string>
-    <string name="chromeless">Chromeless</string>
-
-    <string name="play_video">Play video</string>
-    <string name="play_playlist">Play playlist</string>
-    <string name="play_video_list">Play video list</string>
-    <string name="start_index">Start index</string>
-    <string name="start_time">Start time (sec)</string>
-    <string name="autoplay">Autoplay</string>
-    <string name="lightbox_mode">Lightbox mode</string>
-
-    <string name="intent_select">Please select an action:</string>
-    <string name="intent_disabled">This intent is not supported with the currently installed version of YouTube.</string>
-    <string name="youtube_currently_installed">YouTube version installed on this device: <xliff:g id="youtube_version">%1$s</xliff:g>.</string>
-    <string name="youtube_not_installed">YouTube is not installed on this device.</string>
-
-    <string name="fullscreen_tutorial">This is a demo which shows how to handle fullscreen behaviour. This activity has differents layouts for portrait, landscape and fullscreen. The user can enter fullscreen either by using the player controller or programmatically by the programmer (here using a button). If your activity does not have a landscape layout, you can choose to automatically enter fullscreen when the device is rotated to landscape orientation.</string>
-    <string name="enter_fullscreen">Enter Fullscreen</string>
-    <string name="landscape_fullscreen">Always fullscreen in landscape</string>
-
-    <string name="actionbar_tutorial">This is a demo which shows how to use the ActionBar as an overlay when the video is playing in fullscreen. The actionbar will automatically fade away along with the player controls when the video is being played in fullscreen. While not in fullscreen the Actionbar is visible and does not overlay any of the views.</string>
-
-    <string name="error_thumbnail_view">There was an error initializing the YouTubeThumbnailView (%1$s)</string>
-    <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
 
     <string-array name="Gender">
-        <item name="select relationship">--SELECT--</item>
-        <item name="single">MALE</item>
-        <item name="married">FEMALE</item>
+        <item name="select ">--SELECT--</item>
+        <item name="male">MALE</item>
+        <item name="female">FEMALE</item>
     </string-array>
 
 
-    <string-array name="Apply">
-        <item name="select relationship">select category</item>
-        <item name="police">Police</item>
-        <item name="married">Married</item>
-    </string-array>
 
-
-    <!--    Quiz  -->
-    <string name="time">Time</string>
-    <string name="test_submited">Test Submitted Successfully</string>
-    <string name="ok">OK</string>
-    <string name="previous">Previous</string>
-    <string name="next">Next</string>
-    <string name="submit">Submit</string>
-    <string name="online_test_empty_text">No Online Test Available</string>
-    <string name="no_subject_found_empty_txt">No Subject Available</string>
-    <string name="subjects">Subjects</string>
-    <string name="online_test">Online Test</string>
 
     <!--    Profile   -->
     <string name="my_profile">My Profile</string>
@@ -145,5 +77,18 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="try_again">Please Try Again!!</string>
     <string name="contacts">Dumboo Contacts</string>
+    <string name="setting">Dumboo Setting</string>
+    <string name="profile">Dumboo Profile</string>
+    <string name="fav">Favourite Contacts</string>
+    <string name="meetDeveloper">https://myflutterwebsite-5f6a2.firebaseapp.com/</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="detecting_otp">\"Detecting OTP : \"</string>
+    <string name="colon">:</string>
+    <string name="string_format">%02d</string>
+    <string name="error_valid_number">Please Enter Valid Number</string>
+    <string name="_enter_otp">Please Enter OTP</string>
+    <string name="require_phone_state">\"Required Phone State Permission \"</string>
+    <string name="contact_loading">Please Wait While Contacts Is Loading</string>
+    <string name="contact_permission">Require Contacts Permission</string>
 
 </resources>

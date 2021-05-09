@@ -58,15 +58,16 @@ private lateinit var sharedPre:SharedPre
 
     override fun onDestroy() {
         super.onDestroy()
-
     }
 
     suspend fun swapActivty() {
         delay(3000L)
         if(sharedPre.isLoggedIn){
             startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
+            finish()
         }else{
             startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+            finish()
         }
 
     }

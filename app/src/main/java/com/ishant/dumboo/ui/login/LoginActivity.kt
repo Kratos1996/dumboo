@@ -51,27 +51,20 @@ class LoginActivity : DumbooBaseActivity(), FirbaseAuthActions {
                     firebaseActions
                 )
             } else {
-                showCustomAlert("Please Enter Valid Number", binding.root)
+                showCustomAlert(getString(R.string.error_valid_number), binding.root)
             }
         })
         binding.cvVerify.setOnClickListener {
-            if( !binding.otpView.otp.toString().isNullOrEmpty()){
-                viewModel.verifyVerificationCode(
-                    binding.otpView.otp,
-                    activityContext!!,
-                    firebaseActions
-                )
-            }else{
-                showCustomAlert("Please Enter OTP",binding.root)
+            if( !binding.otpView.otp.toString().isNullOrEmpty()){ viewModel.verifyVerificationCode(binding.otpView.otp, activityContext, firebaseActions) }else{
+                showCustomAlert(getString(R.string._enter_otp),binding.root)
             }
 
         }
         timer = object : CountDownTimer(60000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                val v = String.format("%02d", millisUntilFinished / 60000)
+                val v = String.format(getString(R.string.string_format), millisUntilFinished / 60000)
                 val va = (millisUntilFinished % 60000 / 1000).toInt()
-                binding.tvDetectingOtpTime.text =
-                    "Detecting OTP : " + v + ":" + String.format("%02d", va)
+                binding.tvDetectingOtpTime.text = getString(R.string.detecting_otp) + v + getString(R.string.colon) + String.format(getString(R.string.string_format), va)
                 binding.tvResendOtp.visibility = View.GONE
             }
 
@@ -107,33 +100,6 @@ class LoginActivity : DumbooBaseActivity(), FirbaseAuthActions {
             })
     }
 
-    override fun onIncomingCallReceived(ctx: Context?, number: String?, start: Date?) {
-
-    }
-
-    override fun onIncomingCallAnswered(ctx: Context?, number: String?, start: Date?) {
-
-    }
-
-    override fun onIncomingCallEnded(ctx: Context?, number: String?, start: Date?, end: Date?) {
-
-    }
-
-    override fun onOutgoingCallStarted(ctx: Context?, number: String?, start: Date?) {
-
-    }
-
-    override fun onOutgoingCallEnded(ctx: Context?, number: String?, start: Date?, end: Date?) {
-
-    }
-
-    override fun onMissedCall(context: Context?, savedNumber: String?, callStartTime: Date?) {
-
-    }
-
-    override fun RingType(ringerMode: Int) {
-
-    }
 
     override fun VerificationCodeSent() {
         binding.progressBar.visibility = View.GONE
@@ -146,7 +112,7 @@ class LoginActivity : DumbooBaseActivity(), FirbaseAuthActions {
     override fun startActivity(uid: String, phoneNumber: String?) {
         DataStoreCoroutinesHandler.io(viewModel) {
             viewModel.getDataStore().setPhoneNumber(phoneNumber!!)
-            viewModel.getDataStore().setUserId(uid!!)
+            viewModel.getDataStore().setUserId(uid)
             sharedPre.setUserId(uid)
             sharedPre.setUserMobile(phoneNumber)
             sharedPre.isLoggedIn = true
